@@ -89,17 +89,17 @@ async def main():
             serviceName = 'ct8'
         else:
             numbers = re.findall(r'\d+', panel)
-            serviceName = f's{numbers}'
+            serviceName = f's{numbers[0]}'
         is_logged_in = await login(username, password, panel)
 
         if is_logged_in:
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'{serviceName}账号 {username} 于北京时间 {now_beijing}（UTC时间 {now_utc}）\033[32m登录成功\033[0m！'
+            success_message = f'{serviceName}账号 {username} 北京时间 {now_beijing}（UTC时间 {now_utc}）登录成功！'
             message += '\n' + success_message + '\n'
             print(success_message)
         else:
-            message += f'\n{serviceName}账号 {username} \033[31m登录失败\033[0m，请检查{serviceName}账号和密码是否正确。\n'
+            message += f'\n{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。\n'
             print(f'{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
