@@ -22,7 +22,7 @@ async def delay_time(ms):
 browser = None
 
 # telegram消息
-message = 'serv00&ct8自动化脚本运行\n'
+message = 'serv00&ct8自动化脚本运行:\n'
 
 async def login(username, password, panel):
     global browser
@@ -96,7 +96,7 @@ async def main():
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
             success_message = f'{serviceName}账号 {username} 北京时间 {now_beijing}（UTC时间 {now_utc}）登录成功！'
-            message += '\n' + success_message + '\n'
+            message += '  ' +success_message + '\n'
             print(success_message)
         else:
             message += f'\n{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。\n'
@@ -105,9 +105,9 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
         
-    message += f'所有{serviceName}账号登录完成！'
+    message += f'\n所有serv00&ct8账号登录完成！'
     await send_telegram_message(message)
-    print(f'所有{serviceName}账号登录完成！')
+    print(f'所有账号登录完成！')
 
 async def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
