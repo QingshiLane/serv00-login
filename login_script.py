@@ -105,7 +105,7 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
         
-    message += f''''所有serv00、ct8账号登录完成''''
+    message += f'#所有serv00、ct8账号登录完成#'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
 
