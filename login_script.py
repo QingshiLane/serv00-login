@@ -69,7 +69,7 @@ async def login(username, password, panel):
 
 async def main():
     global message
-    message = '####serv00&ct8自动化脚本运行####\n'
+    message = '#serv00&ct8自动化脚本运行#\n'
 
     try:
         async with aiofiles.open('accounts.json', mode='r', encoding='utf-8') as f:
@@ -105,7 +105,7 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
         
-    message += f'####所有serv00&ct8账号登录完成！####'
+    message += f'#所有serv00&ct8账号登录完成#'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
 
