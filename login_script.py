@@ -6,6 +6,7 @@ import aiofiles
 import random
 import requests
 import os
+import re
 
 # 从环境变量中获取 Telegram Bot Token 和 Chat ID
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -83,17 +84,22 @@ async def main():
         password = account['password']
         panel = account['panel']
 
-        serviceName = 'ct8' if 'ct8' in panel else 'serv00'
+        #serviceName = 'ct8' if 'ct8' in panel else 'serv00'
+        if 'ct8' in panel:
+            serviceName = 'ct8'
+        else:
+            numbers = re.findall(r'\d+', panel)
+            serviceName = f's{numbers}'
         is_logged_in = await login(username, password, panel)
 
         if is_logged_in:
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'{serviceName}账号 {username} 于北京时间 {now_beijing}（UTC时间 {now_utc}）登录成功！'
+            success_message = f'{serviceName}账号 {username} 于北京时间 {now_beijing}（UTC时间 {now_utc}）\033[32m登录成功\033[0m！'
             message += '\n' + success_message + '\n'
             print(success_message)
         else:
-            message += f'\n{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。\n'
+            message += f'\n{serviceName}账号 {username} \033[31m登录失败\033[0m，请检查{serviceName}账号和密码是否正确。\n'
             print(f'{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
