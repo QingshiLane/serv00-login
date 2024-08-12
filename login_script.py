@@ -79,9 +79,9 @@ async def main():
         print(f'读取 accounts.json 文件时出错: {e}')
         return
 
-    ii=0
+    ss=0
+    ff=0
     for account in accounts:
-        ii+=1
         username = account['username']
         password = account['password']
         panel = account['panel']
@@ -95,18 +95,20 @@ async def main():
         is_logged_in = await login(username, password, panel)
 
         if is_logged_in:
+            ss+=1
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'🟢({ii}){serviceName}账号 {username} CST：{now_beijing}（UTC：{now_utc}）登录成功'
+            success_message = f'🟢{serviceName}账号 {username} CST：{now_beijing}（UTC：{now_utc}）登录成功'
             message += success_message + '\n'
             print(success_message)
         else:
-            message += f'🔴({ii}){serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确\n'
+            ff+=1
+            message += f'🔴{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确\n'
             print(f'{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
         await delay_time(delay)
-        
+    message += f'登录成功({ss}) 登陆失败({ff}) 总计({ss+ff})'    
     message += f'🟪🟧🟨脚本运行结束🟨🟧🟪'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
