@@ -109,7 +109,7 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
 
-    patterns = ['⭐','✨','☁️','🌞','🌥️','🌤️','🌹','❤️','🧡','💛','💚','💙','💜','🌸','😄','😀','😁','😆','🌈','🔴','🟠','🟡','🔵','🟢','🌊']
+    patterns = ['⭐','✨','☁️','🌞','🌥️','🌤️','🌹','🌸','😄','😀','😁','😆','🌈','🌊']
     patterns = random.sample(patterns, 6)
     message += f'{patterns[0]}{patterns[1]}{patterns[2]}脚本运行结束{patterns[3]}{patterns[4]}{patterns[5]}\n'
     message += f'登录成功(<code>{ss}</code>) 登陆失败(<code>{ff}</code>) 总计(<code>{ss+ff}</code>)'
