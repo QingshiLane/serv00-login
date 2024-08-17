@@ -103,8 +103,8 @@ async def main():
             print(success_message)
         else:
             ff+=1
-            message += f'🔴{serviceName}账号 {username} 登录失败，请检查账号&密码是否正确\n'
-            print(f'{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。')
+            message += f'🔴{serviceName}账号 <code>{username}</code> 登录失败，请检查账号&密码是否正确\n'
+            print(f'{serviceName}账号 <code>{username}</code> 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
         await delay_time(delay)
