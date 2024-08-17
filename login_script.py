@@ -109,7 +109,7 @@ async def main():
         delay = random.randint(1000, 8000)
         await delay_time(delay)
     message += f'🟪🟧🟨<b>脚本运行结束</b>🟨🟧🟪\n'
-    message += f'登录成功(<i>{ss}</i>) 登陆失败(<i>{ff}</i>) 总计(<i>{ss+ff}</i>)'
+    message += f'登录成功(<code>{ss}</code>) 登陆失败(<code>{ff}</code>) 总计(<code>{ss+ff}</code>)'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
 
