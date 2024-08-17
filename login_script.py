@@ -98,12 +98,12 @@ async def main():
             ss+=1
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'🟢{serviceName}账号 <em>{username}</em> CST <code>{now_beijing}</code>（UTC <code>{now_utc}</code>）'
+            success_message = f'🟢{serviceName} 账号 <code>{username}</code> CST <code>{now_beijing}</code>（UTC <code>{now_utc}</code>）'
             message += success_message + '\n'
             print(success_message)
         else:
             ff+=1
-            message += f'🔴{serviceName}账号 <em>{username}</em> 登录失败，请检查账号&密码是否正确\n'
+            message += f'🔴{serviceName} 账号 <code>{username}</code> 登录失败，请检查账号&密码是否正确\n'
             print(f'{serviceName}账号 {username} 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
@@ -123,7 +123,7 @@ async def send_telegram_message(message):
             'inline_keyboard': [
                 [
                     {
-                        'text': '项目直达',
+                        'text': '👉项目直达👈',
                         'url': 'https://github.com/QingshiLane/serv00-login'
                     }
                 ]
