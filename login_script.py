@@ -60,7 +60,7 @@ async def login(username, password, panel):
         return is_logged_in
 
     except Exception as e:
-        print(f'{serviceName}账号 {username} 登录时出现错误: {e}')
+        print(f'{serviceName}账号 <em>{username}</em> 登录时出现错误: {e}')
         return False
 
     finally:
@@ -123,8 +123,8 @@ async def send_telegram_message(message):
             'inline_keyboard': [
                 [
                     {
-                        'text': '问题反馈❓',
-                        'url': 'https://t.me/yxjsjl'
+                        'text': '👉项目直达',
+                        'url': 'https://github.com/QingshiLane/serv00-login'
                     }
                 ]
             ]
