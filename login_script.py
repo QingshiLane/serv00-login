@@ -126,7 +126,7 @@ async def send_telegram_message(message):
             'inline_keyboard': [
                 [
                     {
-                        'text': '👉项目直达👈',
+                        'text': '👉来自Github点此处直达项目👈',
                         'url': 'https://github.com/QingshiLane/serv00-login'
                     }
                 ]
