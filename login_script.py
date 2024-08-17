@@ -118,6 +118,7 @@ async def send_telegram_message(message):
     payload = {
         'chat_id': TELEGRAM_CHAT_ID,
         'text': message,
+        'parse_mode': 'HTML',
         'reply_markup': {
             'inline_keyboard': [
                 [
