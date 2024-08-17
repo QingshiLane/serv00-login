@@ -98,7 +98,7 @@ async def main():
             ss+=1
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'🟢{serviceName} 账号 <code>{username}</code> CST <small>{now_beijing}</small>（UTC <small>{now_utc}</small>）'
+            success_message = f'🟢{serviceName} 账号 <code>{username}</code> CST {now_beijing}（UTC {now_utc}）'
             message += success_message + '\n'
             print(success_message)
         else:
