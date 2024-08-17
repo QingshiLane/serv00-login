@@ -69,7 +69,7 @@ async def login(username, password, panel):
 
 async def main():
     global message
-    message = "🟦🟧🟨<b>serv00&ct8保号</b>🟨🟧🟦\n"
+    message = "🟦🟧🟨<h1>serv00&ct8保号</h1>🟨🟧🟦\n"
 
     try:
         async with aiofiles.open('accounts.json', mode='r', encoding='utf-8') as f:
@@ -98,17 +98,17 @@ async def main():
             ss+=1
             now_utc = format_to_iso(datetime.utcnow())
             now_beijing = format_to_iso(datetime.utcnow() + timedelta(hours=8))
-            success_message = f'🟢{serviceName}账号 {username} | CST {now_beijing}（UTC {now_utc}）'
+            success_message = f'🟢{serviceName}账号 <em>{username}</em> CST <code>{now_beijing}</code>（UTC <code>{now_utc}</code>）'
             message += success_message + '\n'
             print(success_message)
         else:
             ff+=1
-            message += f'🔴{serviceName}账号 <code>{username}</code> 登录失败，请检查账号&密码是否正确\n'
+            message += f'🔴{serviceName}账号 <em>{username}</em> 登录失败，请检查账号&密码是否正确\n'
             print(f'{serviceName}账号 <code>{username}</code> 登录失败，请检查{serviceName}账号和密码是否正确。')
 
         delay = random.randint(1000, 8000)
         await delay_time(delay)
-    message += f'🟪🟧🟨<b>脚本运行结束</b>🟨🟧🟪\n'
+    message += f'🟪🟧🟨<h1>脚本运行结束</h1>🟨🟧🟪\n'
     message += f'登录成功(<code>{ss}</code>) 登陆失败(<code>{ff}</code>) 总计(<code>{ss+ff}</code>)'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
