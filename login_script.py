@@ -69,7 +69,7 @@ async def login(username, password, panel):
 
 async def main():
     global message
-    message = "🟦🟧🟨<h1>serv00&ct8保号</h1>🟨🟧🟦\n"
+    message = "🟦🟧🟨serv00&ct8保号🟨🟧🟦\n"
 
     try:
         async with aiofiles.open('accounts.json', mode='r', encoding='utf-8') as f:
@@ -108,7 +108,7 @@ async def main():
 
         delay = random.randint(1000, 8000)
         await delay_time(delay)
-    message += f'🟪🟧🟨<h1>脚本运行结束</h1>🟨🟧🟪\n'
+    message += f'🟪🟧🟨脚本运行结束🟨🟧🟪\n'
     message += f'登录成功(<code>{ss}</code>) 登陆失败(<code>{ff}</code>) 总计(<code>{ss+ff}</code>)'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
@@ -123,7 +123,7 @@ async def send_telegram_message(message):
             'inline_keyboard': [
                 [
                     {
-                        'text': '👉项目直达',
+                        'text': '项目直达',
                         'url': 'https://github.com/QingshiLane/serv00-login'
                     }
                 ]
