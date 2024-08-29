@@ -113,8 +113,8 @@ async def main():
     patterns = ['⭐','✨','☁️','🌞','🌥️','🌤️','🌹','🌸','😄','😀','😁','😆','🌈','🌊']
     patterns = random.sample(patterns, 6)
     message += f'{patterns[0]}{patterns[1]}{patterns[2]}脚本运行结束{patterns[3]}{patterns[4]}{patterns[5]}\n'
-    message += f'📆{now_beijing}'
     message += f'登录成功(<code>{ss}</code>) 登陆失败(<code>{ff}</code>) 总计(<code>{ss+ff}</code>)'
+    message += f'\n📆{now_beijing}'
     # message += f'📅CST {now_beijing}（UTC {now_utc}）'
     await send_telegram_message(message)
     print(f'所有账号登录完成！')
